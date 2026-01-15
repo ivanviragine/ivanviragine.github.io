@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Ivan Viragine - Production AI, multi-agent systems, evaluation-first engineering."
+    />
+    <title>ivanviragine</title>
+
+    <style>
+      :root {
+        --bg: #070a0d;
+        --panel: #0b0f14;
+        --text: #d7e0ea;
+        --muted: #9aa7b5;
+        --accent: #35ff8a;
+        --accent2: #57c7ff;
+        --border: #1b2430;
+        --shadow: rgba(0, 0, 0, 0.35);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        background: radial-gradient(
+            1200px 800px at 25% 10%,
+            rgba(53, 255, 138, 0.08),
+            transparent 60%
+          ),
+          radial-gradient(
+            900px 700px at 85% 25%,
+            rgba(87, 199, 255, 0.08),
+            transparent 55%
+          ),
+          var(--bg);
+        background-attachment: fixed;
+        color: var(--text);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        line-height: 1.55;
+        padding: 28px 18px;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      a:hover {
+        color: var(--accent2);
+      }
+
+      .wrap {
+        max-width: 920px;
+        margin: 0 auto;
+      }
+
+      .terminal {
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.03),
+            transparent 22%
+          ),
+          var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: 0 12px 30px var(--shadow);
+        overflow: hidden;
+      }
+
+      .bar {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        opacity: 0.8;
+      }
+
+      .dot.red {
+        background: #ff5f57;
+      }
+
+      .dot.yellow {
+        background: #ffbd2e;
+      }
+
+      .dot.green {
+        background: #28c840;
+      }
+
+      .title {
+        margin-left: 10px;
+        color: var(--muted);
+        font-size: 13px;
+        user-select: none;
+      }
+
+      .content {
+        padding: 18px 18px 20px;
+      }
+
+      pre {
+        margin: 0;
+        white-space: pre;
+        overflow-x: auto;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .avatar-wrap {
+        text-align: center;
+      }
+
+      .avatar {
+        display: inline-block;
+        margin: 10px 0 14px;
+        padding: 12px;
+        font-size: 2px;
+        line-height: 1.15;
+        text-align: left;
+        white-space: pre;
+        overflow-x: auto;
+        max-width: 100%;
+      }
+
+      .prompt {
+        color: rgba(53, 255, 138, 0.75);
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .hr {
+        color: #223042;
+      }
+
+      .heart {
+        font-size: 0.85em;
+        opacity: 0.9;
+        vertical-align: baseline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="terminal" role="region" aria-label="Terminal profile">
+        <div class="bar" aria-hidden="true">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="title">ivanviragine - Welcome</span>
+        </div>
+
+        <div class="content">
+          <pre><span class="prompt">ivan@host:/home/ivan$</span> whoami
+Ivan Viragine
+
+<span class="prompt">ivan@host:/home/ivan$</span> cat about.txt
+</pre>
+
+          <div class="avatar-wrap">
+            <pre id="avatar" class="avatar">[loading avatar]</pre>
+          </div>
+
+          <pre>
+AI Engineer with 18+ years of experience building production-grade software systems,
+and in recent years, AI platforms and multi-agent architectures in regulated environments.
+Focused on evaluation-first engineering, observability, and long-term ownership past launch.
+
+I design systems that survive contact with users: measurable behavior,
+debuggable workflows, and platform primitives that other teams can build on.
+
+<span class="prompt">ivan@host:/home/ivan$</span> cat scope.txt
+- Hands-on Staff/Architect IC scope: platform architecture, reliability, evaluation
+- Multi-agent voice and text systems in production
+- RAG-backed experiences with automated quality metrics and test harnesses
+
+<span class="prompt">ivan@host:/home/ivan$</span> cat AGENTS.md
+AGENT BEHAVIOR AND OPERATING CONSTRAINTS
+
+- Evaluation is a first-class capability, not a post-hoc metric.
+- Non-determinism must be observable, bounded, and debuggable.
+- Agents should fail explicitly and early rather than degrade silently.
+- Production behavior matters more than benchmark performance.
+- Every agent interaction should be traceable and reproducible.
+- Shipping is the beginning: agents must evolve safely post-launch.
+- Prefer boring interfaces and explicit contracts over clever internals.
+- Usability is part of correctness, not an afterthought.
+
+<span class="prompt">ivan@host:/home/ivan$</span> ls links/
+github      linkedin      email
+
+<span class="prompt dim">ivan@host:/home/ivan$</span> cat links/github
+<a href="https://github.com/ivanviragine" target="_blank" rel="noopener">https://github.com/ivanviragine</a>
+
+<span class="prompt dim">ivan@host:/home/ivan$</span> cat links/linkedin
+<a href="https://www.linkedin.com/in/ivanviragine/" target="_blank" rel="noopener">https://www.linkedin.com/in/ivanviragine/</a>
+
+<span class="prompt dim">ivan@host:/home/ivan$</span> cat links/email
+<a href="mailto:ivanviragine@gmail.com">ivanviragine (at) gmail (dot) com</a>
+
+
+<span class="hr">--------------------------------------------------------------------------------</span>
+<span class="muted">Static page by design · <span class="heart">❤️</span></span>
+</pre>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      fetch("avatar.txt")
+        .then((r) => r.text())
+        .then((t) => {
+          document.getElementById("avatar").textContent = t;
+        })
+        .catch(() => {
+          document.getElementById("avatar").textContent =
+            "[avatar unavailable]";
+        });
+    </script>
+  </body>
+</html>
