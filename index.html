@@ -126,6 +126,15 @@
         line-height: 1.55;
       }
 
+      @media (max-width: 768px) {
+        pre {
+          white-space: pre-wrap;
+          overflow-x: hidden;
+          font-size: 12px;
+          word-break: break-word;
+        }
+      }
+
       .avatar-wrap {
         text-align: center;
       }
@@ -162,6 +171,13 @@
 
       .hr {
         color: #223042;
+      }
+
+      @media (max-width: 768px) {
+        .hr {
+          font-size: 10px;
+          word-break: break-all;
+        }
       }
 
       .heart {
