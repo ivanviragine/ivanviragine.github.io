@@ -143,16 +143,14 @@
         display: inline-block;
         margin: 10px 0 14px;
         padding: 12px;
-        font-size: 10px;
+        font-size: 2px;
         line-height: 1.15;
         text-align: left;
         white-space: pre;
         overflow-x: auto;
         max-width: 100%;
-        -webkit-text-size-adjust: none;
-        text-size-adjust: none;
-        transform: scale(0.2);
-        transform-origin: center;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
       }
 
       @media (max-width: 768px) {
@@ -160,8 +158,10 @@
           overflow-x: hidden;
           font-size: 10px;
           line-height: 1.15;
-          transform: scale(0.17);
-          transform-origin: center;
+          letter-spacing: -0.45em;
+          transform: scale(0.25);
+          transform-origin: center top;
+          margin-bottom: -150px;
         }
       }
 
