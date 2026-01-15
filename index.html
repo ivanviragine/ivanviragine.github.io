@@ -143,7 +143,7 @@
         display: inline-block;
         margin: 10px 0 14px;
         padding: 12px;
-        font-size: 2px;
+        font-size: 10px;
         line-height: 1.15;
         text-align: left;
         white-space: pre;
@@ -151,13 +151,16 @@
         max-width: 100%;
         -webkit-text-size-adjust: none;
         text-size-adjust: none;
+        transform: scale(0.2);
+        transform-origin: center;
       }
 
       @media (max-width: 768px) {
         .avatar {
           overflow-x: hidden;
-          line-height: 2.5px;
-          transform: scale(0.85);
+          font-size: 10px;
+          line-height: 1.15;
+          transform: scale(0.17);
           transform-origin: center;
         }
       }
