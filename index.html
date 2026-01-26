@@ -144,15 +144,11 @@
         font-size: 6px;
         margin-bottom: -20px;
         margin-top: -5px;
-        filter: brightness(1.05);
       }
 
       #avatar {
         margin-top: -20px;
         margin-bottom: -12px;
-        color: #f7fbff;
-        filter: brightness(1.6);
-        text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
       }
 
       .avatar {
@@ -169,76 +165,11 @@
         text-size-adjust: 100%;
       }
 
-      /* Safari minimum font size workaround */
-      @supports (-webkit-hyphens: none) {
-        .avatar-wrap {
-          overflow: visible;
-          display: flex;
-          justify-content: center;
-        }
-
-        .avatar {
-          overflow: visible;
-        }
-
-        /* Name: target ~6px visual size */
-        #name {
-          font-size: 9px;
-          line-height: 1.15;
-          transform: scale(0.74);
-          transform-origin: center top;
-          margin-top: 4px;
-          margin-bottom: 0;
-          height: auto;
-        }
-
-        /* Avatar: use 5px font and downscale; increase line-height to fix aspect ratio */
-        #avatar {
-          font-size: 5px;
-          line-height: 1.22;
-          transform: scale(0.52);
-          transform-origin: center top;
-          margin-top: -2px;
-          margin-bottom: 0;
-          height: auto;
-          color: #eef3ff;
-          filter: brightness(1.25);
-          text-shadow: 0 0 4px rgba(255, 255, 255, 0.25);
-        }
-
-        .content {
-          overflow: visible;
-        }
-
-        .terminal {
-          overflow: visible;
-        }
-      }
-
       @media (max-width: 768px) {
-        .avatar-wrap {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-
-        #name {
-          display: block;
-          margin-top: -5px;
-          margin-bottom: -12px;
-          transform: none;
-        }
-
-        #avatar {
-          margin-top: -20px;
-          margin-bottom: -12px;
-          transform: none;
-        }
-
         .avatar {
-          white-space: pre;
-          overflow-x: auto;
-          -webkit-overflow-scrolling: touch;
+          overflow-x: hidden;
+          line-height: 2.5px;
+          zoom: 0.85;
         }
       }
 
@@ -260,60 +191,6 @@
           white-space: nowrap;
           overflow: hidden;
           display: block;
-        }
-      }
-
-      @media (max-width: 480px) {
-        body {
-          padding: 18px 12px;
-        }
-
-        .content {
-          padding: 14px 14px 16px;
-        }
-
-        pre {
-          font-size: 12px;
-          line-height: 1.5;
-        }
-      }
-
-      @media (max-width: 520px) {
-        #name {
-          font-size: 3.2px;
-          line-height: 1.1;
-          margin-top: 2px;
-          margin-bottom: -4px;
-          padding: 0;
-          max-width: 100%;
-          white-space: pre;
-          word-break: normal;
-          overflow-x: auto;
-          -webkit-overflow-scrolling: touch;
-          text-align: center;
-          display: inline-block;
-        }
-
-        #avatar {
-          font-size: 1.8px;
-          line-height: 1.12;
-          margin-top: -10px;
-          margin-bottom: -4px;
-        }
-      }
-
-      @media (max-width: 420px) {
-        #name {
-          font-size: 2.8px;
-          line-height: 1.05;
-          margin-top: 2px;
-          margin-bottom: -2px;
-        }
-
-        #avatar {
-          font-size: 1.6px;
-          line-height: 1.1;
-          margin-bottom: -4px;
         }
       }
 
@@ -401,24 +278,6 @@ github      linkedin      email
         .then((r) => r.text())
         .then((t) => {
           document.getElementById("avatar").textContent = t;
-          if (CSS.supports("(-webkit-hyphens: none)")) {
-            requestAnimationFrame(() => {
-              const nameEl = document.getElementById("name");
-              const avatarEl = document.getElementById("avatar");
-              const nameWrap = nameEl?.closest(".avatar-wrap");
-              const avatarWrap = avatarEl?.closest(".avatar-wrap");
-
-              if (nameEl && nameWrap) {
-                const nameHeight = nameEl.getBoundingClientRect().height;
-                nameWrap.style.height = `${Math.ceil(nameHeight)}px`;
-              }
-
-              if (avatarEl && avatarWrap) {
-                const avatarHeight = avatarEl.getBoundingClientRect().height;
-                avatarWrap.style.height = `${Math.ceil(avatarHeight)}px`;
-              }
-            });
-          }
         })
         .catch(() => {
           document.getElementById("avatar").textContent = "[avatar unavailable]";
