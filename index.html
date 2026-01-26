@@ -62,7 +62,7 @@
       }
 
       .wrap {
-        max-width: 780px;
+        max-width: 920px;
         margin: 0 auto;
       }
 
@@ -120,7 +120,7 @@
 
       pre {
         margin: 0;
-        white-space: pre-wrap;
+        white-space: pre;
         overflow-x: auto;
         font-size: 14px;
         line-height: 1.55;
@@ -139,23 +139,11 @@
         text-align: center;
       }
 
-      #name {
-        color: #ffe066;
-        font-size: 6px;
-        margin-bottom: -20px;
-        margin-top: -5px;
-      }
-
-      #avatar {
-        margin-top: -20px;
-        margin-bottom: -12px;
-      }
-
       .avatar {
         display: inline-block;
         margin: 10px 0 14px;
         padding: 12px;
-        font-size: 2.5px;
+        font-size: 2px;
         line-height: 1.15;
         text-align: left;
         white-space: pre;
@@ -209,24 +197,27 @@
           <span class="dot red"></span>
           <span class="dot yellow"></span>
           <span class="dot green"></span>
-          <span class="title">ivanviragine.dev - welcome</span>
+          <span class="title">ivanviragine - Welcome</span>
         </div>
 
         <div class="content">
-          <pre><span class="prompt">ivan@host:/home/ivan$</span> cat about.txt</pre>
+          <pre><span class="prompt">ivan@host:/home/ivan$</span> whoami
+Ivan Viragine
 
-          <div class="avatar-wrap">
-            <pre id="name" class="avatar">[loading name]</pre>
-          </div>
+<span class="prompt">ivan@host:/home/ivan$</span> cat about.txt
+</pre>
 
           <div class="avatar-wrap">
             <pre id="avatar" class="avatar">[loading avatar]</pre>
           </div>
 
           <pre>
-AI Engineer with 18+ years of experience building production-grade software systems, and in recent years, AI platforms and multi-agent architectures in regulated environments. Focused on evaluation-first engineering, observability, and long-term ownership past launch.
+AI Engineer with 18+ years of experience building production-grade software systems,
+and in recent years, AI platforms and multi-agent architectures in regulated environments.
+Focused on evaluation-first engineering, observability, and long-term ownership past launch.
 
-I design systems that survive contact with users: measurable behavior, debuggable workflows, and platform primitives that other teams can build on.
+I design systems that survive contact with users: measurable behavior,
+debuggable workflows, and platform primitives that other teams can build on.
 
 <span class="prompt">ivan@host:/home/ivan$</span> cat scope.txt
 - Hands-on Staff/Architect IC scope: platform architecture, reliability, evaluation
@@ -257,6 +248,7 @@ github      linkedin      email
 <span class="prompt dim">ivan@host:/home/ivan$</span> cat links/email
 <a href="mailto:ivan@ivanviragine.dev">ivan (at) ivanviragine (dot) dev</a>
 
+
 <span class="hr">--------------------------------------------------------------------------------</span>
 <span class="muted">Static page by design · <span class="heart">❤️</span></span>
 </pre>
@@ -265,22 +257,14 @@ github      linkedin      email
     </div>
 
     <script>
-      fetch("ivanviragine.txt")
-        .then((r) => r.text())
-        .then((t) => {
-          document.getElementById("name").textContent = t;
-        })
-        .catch(() => {
-          document.getElementById("name").textContent = "[name unavailable]";
-        });
-
       fetch("avatar.txt")
         .then((r) => r.text())
         .then((t) => {
           document.getElementById("avatar").textContent = t;
         })
         .catch(() => {
-          document.getElementById("avatar").textContent = "[avatar unavailable]";
+          document.getElementById("avatar").textContent =
+            "[avatar unavailable]";
         });
     </script>
   </body>
